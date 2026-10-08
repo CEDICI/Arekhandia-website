@@ -20,22 +20,46 @@ jobs:
         run: |
           set -euo pipefail
           CHROME="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
-          if [ -z "$CHROME" ]; then echo "Chrome is missing"; exit 1; fi
+          test -n "$CHROME" || { echo "Chrome is missing"; exit 1; }
           mkdir -p assets
-          for SITE in cedici gymcompare; do
-            if [ "$SITE" = "cedici" ]; then URL="https://cedici.ch/"; else URL="https://gymcompare.ch/"; fi
-            echo "Capturing $URL"
-            timeout 100s "$CHROME" --headless --no-sandbox --disable-gpu --disable-dev-shm-usage --hide-scrollbars --window-size=1600,1000 --virtual-time-budget=12000 --screenshot="/tmp/$SITE.png" "$URL" || true
-            test -s "/tmp/$SITE.png" || { echo "Screenshot missing: $SITE"; exit 1; }
-          done
-          python3 -m pip install --quiet --user Pillow || python3 -m pip install --quiet Pillow --break-system-packages
-          python3 - <<'PY'
+          python3 -m pip install --quiet --user Pillow playwright || python3 -m pip install --quiet Pillow playwright --break-system-packages
+          CHROME_BIN="$CHROME" python3 - <<'PY'
+          import os
           from PIL import Image, ImageOps
-          for site in ("cedici", "gymcompare"):
-              img = Image.open(f"/tmp/{site}.png").convert("RGB")
-              img = ImageOps.fit(img, (1200, 750), centering=(0.5, 0.0))
-              img.save(f"assets/{site}-site-preview.webp", "WEBP", quality=82, method=5)
-              print(site, img.size)
+          from playwright.sync_api import sync_playwright
+          with sync_playwright() as p:
+              browser = p.chromium.launch(headless=True, executable_path=os.environ["CHROME_BIN"], args=["--no-sandbox", "--disable-dev-shm-usage"])
+              for site, url in (("cedici", "https://cedici.ch/"), ("gymcompare", "https://gymcompare.ch/")):
+                  page = browser.new_page(viewport={"width": 1600, "height": 1000}, device_scale_factor=1)
+                  page.goto(url, wait_until="domcontentloaded", timeout=60000)
+                  page.wait_for_timeout(5000)
+                  if site == "cedici":
+                      # Close the newsletter overlay so the real website is visible.
+                      page.mouse.click(1538, 690)
+                      page.wait_for_timeout(500)
+                      page.evaluate("""() => {
+                        const nodes=[...document.querySelectorAll('*')].filter(el=>el.textContent?.trim()==='Join CEDICI');
+                        for (const start of nodes) {
+                          let el=start;
+                          for (let i=0;i<12 && el && el!==document.body;i++,el=el.parentElement) {
+                            const b=el.getBoundingClientRect();
+                            if (b.width>280 && b.width<750 && b.height>160 && b.height<750
+                                && ['fixed','absolute'].includes(getComputedStyle(el).position)) {
+                              el.style.display='none';
+                              return;
+                            }
+                          }
+                        }
+                      }""")
+                  source=f"/tmp/{site}.png"
+                  page.screenshot(path=source, full_page=False, animations="disabled")
+                  img=Image.open(source).convert("RGB")
+                  img=ImageOps.fit(img,(1200,750),centering=(0.5,0.0))
+                  out=f"assets/{site}-site-preview.webp"
+                  img.save(out,"WEBP",quality=82,method=5)
+                  print(site, img.size, os.path.getsize(out))
+                  page.close()
+              browser.close()
           PY
       - name: Publish website previews
         shell: bash

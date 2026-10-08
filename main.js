@@ -1,0 +1,1 @@
+document.querySelectorAll('.menu-button').forEach(b=>{b.addEventListener('click',()=>{const n=document.querySelector('.nav');const isOpen=n.classList.toggle('open');b.setAttribute('aria-expanded',isOpen?'true':'false');b.textContent=isOpen?'×':'☰';});});

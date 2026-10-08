@@ -1,0 +1,49 @@
+name: Capture portfolio previews
+
+on:
+  push:
+    paths:
+      - ".github/workflows/project-previews.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Capture real website screenshots
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROME="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          if [ -z "$CHROME" ]; then echo "Chrome is missing"; exit 1; fi
+          mkdir -p assets
+          for SITE in cedici gymcompare; do
+            if [ "$SITE" = "cedici" ]; then URL="https://cedici.ch/"; else URL="https://gymcompare.ch/"; fi
+            echo "Capturing $URL"
+            timeout 100s "$CHROME" --headless --no-sandbox --disable-gpu --disable-dev-shm-usage --hide-scrollbars --window-size=1600,1000 --virtual-time-budget=12000 --screenshot="/tmp/$SITE.png" "$URL" || true
+            test -s "/tmp/$SITE.png" || { echo "Screenshot missing: $SITE"; exit 1; }
+          done
+          python3 -m pip install --quiet --user Pillow || python3 -m pip install --quiet Pillow --break-system-packages
+          python3 - <<'PY'
+          from PIL import Image, ImageOps
+          for site in ("cedici", "gymcompare"):
+              img = Image.open(f"/tmp/{site}.png").convert("RGB")
+              img = ImageOps.fit(img, (1200, 750), centering=(0.5, 0.0))
+              img.save(f"assets/{site}-site-preview.webp", "WEBP", quality=82, method=5)
+              print(site, img.size)
+          PY
+      - name: Publish website previews
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/cedici-site-preview.webp assets/gymcompare-site-preview.webp
+          if ! git diff --cached --quiet; then
+            git commit -m "Add real website screenshots for portfolio"
+            git push
+          fi

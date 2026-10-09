@@ -10,3 +10,27 @@
 .portfolio-shot img{display:block;width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .28s ease}
 .portfolio-shot:hover img,.portfolio-shot:focus-visible img{transform:scale(1.025)}
 @media(prefers-reduced-motion:reduce){.portfolio-shot img{transition:none}}
+
+/* Fifth service, case studies and visual portfolio - premium, responsive */
+@media (min-width:661px){.service-list>.service:last-child:nth-child(odd){grid-column:1/-1;min-height:210px}}
+.case-link-group{display:flex;flex-wrap:wrap;gap:20px 28px;margin-top:24px;align-items:center}
+.case-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.case-steps>div{border-top:1px solid var(--line);padding-top:17px}
+.case-steps span{font-size:12px;letter-spacing:.11em;color:var(--racing);font-weight:600}
+.case-steps p{margin:15px 0 0;color:var(--sub);font-size:14px}
+.case-detail-hero{padding:90px 0 65px}
+.case-detail-hero h1{margin:20px 0;max-width:960px}
+.case-detail-hero .lead{max-width:810px}
+.case-topline{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.case-detail-image{width:100%;height:min(620px,54vw);object-fit:cover;object-position:center top;display:block;border:1px solid var(--line)}
+.case-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;border-bottom:1px solid var(--line);padding:24px 0}
+.case-facts dt{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--racing);font-weight:600}
+.case-facts dd{margin:8px 0 0;font-size:15px}
+.case-content-grid{display:grid;grid-template-columns:1fr 1.35fr;gap:60px;align-items:start}
+.case-content-grid h2{font-size:clamp(27px,3.4vw,46px)}
+.case-content-grid p,.case-content-grid li{color:#516258}
+.case-content-grid ul{margin:16px 0;padding-left:22px}
+.case-content-grid li{margin-bottom:11px}
+.case-disclaimer{margin-top:16px;font-size:12px;color:#66776b}
+@media(max-width:920px){.case-steps{grid-template-columns:1fr 1fr}.case-content-grid{grid-template-columns:1fr;gap:14px}}
+@media(max-width:660px){.case-steps,.case-facts{grid-template-columns:1fr}.case-detail-hero{padding:62px 0 36px}.case-detail-image{height:255px}.case-link-group{gap:12px 22px}}

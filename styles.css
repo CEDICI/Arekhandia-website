@@ -37,3 +37,7 @@
 
 /* GEO: readable real FAQs, not hidden search-only content */
 .faq-list{max-width:1000px;margin-top:40px}.faq-list article{padding:26px 0;border-top:1px solid var(--line)}.faq-list h3{font-size:clamp(19px,2vw,24px);margin:0 0 12px;font-weight:500}.faq-list p{margin:0;max-width:760px;color:var(--sub);line-height:1.7}
+
+/* Consistent non-emoji link arrows on iOS, Android and desktop */
+.link-arrow{display:inline-block;width:14px;height:14px;vertical-align:-2px;flex:none;stroke:currentColor;margin-left:3px}
+.link-arrow-back{margin-left:0;margin-right:7px}

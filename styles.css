@@ -41,3 +41,7 @@
 /* Consistent non-emoji link arrows on iOS, Android and desktop */
 .link-arrow{display:inline-block;width:14px;height:14px;vertical-align:-2px;flex:none;stroke:currentColor;margin-left:3px}
 .link-arrow-back{margin-left:0;margin-right:7px}
+
+/* Contact details: prevent long email addresses overflowing narrow mobile viewports */
+.contact-list{min-width:0}
+.contact-list a{overflow-wrap:anywhere;word-break:normal}

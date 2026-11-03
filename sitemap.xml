@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://arekhandia.ch/</loc></url>
-  <url><loc>https://arekhandia.ch/services.html</loc></url>
-  <url><loc>https://arekhandia.ch/work.html</loc></url>
-  <url><loc>https://arekhandia.ch/about.html</loc></url>
-  <url><loc>https://arekhandia.ch/contact.html</loc></url>
-  <url><loc>https://arekhandia.ch/case-cedici.html</loc></url>
-  <url><loc>https://arekhandia.ch/case-gymcompare.html</loc></url>
-  <url><loc>https://arekhandia.ch/case-visualisierung.html</loc></url>
-  <url><loc>https://arekhandia.ch/visualisierung.html</loc></url>
-  <url><loc>https://arekhandia.ch/brand-identity.html</loc></url>
-  <url><loc>https://arekhandia.ch/content-creation.html</loc></url>
-  <url><loc>https://arekhandia.ch/creative-strategy.html</loc></url>
-  <url><loc>https://arekhandia.ch/studio.html</loc></url>
-  <url><loc>https://arekhandia.ch/case-gioia.html</loc></url>
+<url><loc>https://arekhandia.ch/</loc></url>
+<url><loc>https://arekhandia.ch/about.html</loc></url>
+<url><loc>https://arekhandia.ch/brand-identity.html</loc></url>
+<url><loc>https://arekhandia.ch/case-cedici.html</loc></url>
+<url><loc>https://arekhandia.ch/case-gioia.html</loc></url>
+<url><loc>https://arekhandia.ch/case-gymcompare.html</loc></url>
+<url><loc>https://arekhandia.ch/case-visualisierung.html</loc></url>
+<url><loc>https://arekhandia.ch/contact.html</loc></url>
+<url><loc>https://arekhandia.ch/content-creation.html</loc></url>
+<url><loc>https://arekhandia.ch/creative-strategy.html</loc></url>
+<url><loc>https://arekhandia.ch/datenschutz.html</loc></url>
+<url><loc>https://arekhandia.ch/impressum.html</loc></url>
+<url><loc>https://arekhandia.ch/services.html</loc></url>
+<url><loc>https://arekhandia.ch/studio.html</loc></url>
+<url><loc>https://arekhandia.ch/visualisierung.html</loc></url>
+<url><loc>https://arekhandia.ch/work.html</loc></url>
 </urlset>

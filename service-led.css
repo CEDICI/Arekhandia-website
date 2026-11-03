@@ -400,3 +400,77 @@
   .digital-intro h1 { font-size: 39px; }
 }
 @media(prefers-reduced-motion:reduce) { .service-led * { scroll-behavior: auto; } }
+/* Full-screen original brand hero, with service clarity and high-contrast controls. */
+.commercial-home .immersive-service-header {
+  position: absolute; inset: 0 0 auto; z-index: 10;
+  background: linear-gradient(#101214b3, transparent); border: 0; color: var(--ivory);
+}
+.commercial-home .immersive-service-header nav > a:last-child {
+  background: var(--ivory); color: var(--black); border-color: var(--ivory);
+}
+.commercial-home .immersive-service-header a:focus-visible,
+.commercial-home .immersive-service-header button:focus-visible { outline-color: var(--ivory); }
+.full-screen-service-hero {
+  position: relative; display: block; width: 100%; max-width: none;
+  height: 100svh; min-height: 640px; padding: 0; margin: 0;
+  background: var(--black); color: var(--ivory); isolation: isolate;
+}
+.full-screen-service-hero .commercial-visual {
+  position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; margin: 0; z-index: -2;
+}
+.full-screen-service-hero .commercial-visual picture { display: block; width: 100%; height: 100%; }
+.full-screen-service-hero .commercial-visual img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.full-screen-service-hero:after {
+  content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(0deg, #101214f2 0%, #101214d9 22%, #10121466 41%, transparent 62%);
+}
+.full-screen-service-hero .commercial-copy { position: absolute; left: var(--gutter); bottom: 50px; max-width: 700px; }
+.full-screen-service-hero .commercial-copy h1 { color: var(--ivory); font-size: clamp(38px, 3.5vw, 56px); margin-bottom: 20px; }
+.full-screen-service-hero .hero-explainer { color: var(--ivory); font-size: 16px; line-height: 1.8; max-width: 600px; margin-bottom: 0; }
+.full-screen-service-hero .hero-actions { margin-top: 26px; gap: 28px; }
+.full-screen-service-hero .hero-actions .button { background: var(--ivory); color: var(--black); border-color: var(--ivory); }
+.full-screen-service-hero .hero-actions .text-link { color: var(--ivory); border-bottom: 1px solid #f5f1e899; }
+.full-screen-service-hero a:focus-visible { outline-color: var(--ivory); }
+.portrait-service-wordmark { display: none; }
+@media(hover:hover) and (pointer:fine) {
+  .full-screen-service-hero .hero-actions .button:hover,
+  .commercial-home .immersive-service-header nav > a:last-child:hover { background: var(--green); color: var(--ivory); border-color: var(--green); }
+  .full-screen-service-hero .hero-actions .text-link:hover { border-color: var(--ivory); }
+}
+@media(max-width:1100px) and (min-aspect-ratio:62/100) {
+  .full-screen-service-hero .commercial-visual img { object-position: 85% center; }
+}
+@media(max-width:800px) {
+  .commercial-home .immersive-service-header .menu-toggle { color: var(--ivory); background: #101214d9; border-color: #f5f1e899; }
+  .commercial-home .immersive-service-header nav { background: var(--black); color: var(--ivory); }
+  .commercial-home .immersive-service-header nav a { border-color: #f5f1e833; }
+  .full-screen-service-hero .commercial-copy { bottom: 38px; max-width: 620px; right: var(--gutter); }
+}
+@media(max-width:1100px) and (max-aspect-ratio:61/100) {
+  .commercial-home .immersive-service-header > .brand { visibility: hidden; }
+  .full-screen-service-hero .commercial-visual img { object-position: left center; }
+  .portrait-service-wordmark { display: block; position: absolute; left: 7%; right: 7%; top: 16%; max-width: 630px; margin-inline: auto; }
+  .portrait-service-wordmark img { width: 100%; height: auto; }
+  .full-screen-service-hero:after { background: linear-gradient(0deg, #101214fa 0%, #101214e6 30%, #1012144d 54%, #10121499 83%, #10121480); }
+}
+@media(max-width:600px) {
+  .full-screen-service-hero { min-height: 620px; }
+  .full-screen-service-hero .commercial-copy { bottom: calc(24px + env(safe-area-inset-bottom, 0px)); }
+  .full-screen-service-hero .commercial-copy h1 { font-size: clamp(31px, 8.5vw, 40px); line-height: 1.15; margin-bottom: 18px; }
+  .full-screen-service-hero .hero-explainer { font-size: 14px; line-height: 1.8; }
+  .full-screen-service-hero .hero-actions { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 23px; }
+  .full-screen-service-hero .hero-actions .button { width: 100%; }
+  .full-screen-service-hero .hero-actions .text-link { justify-self: start; padding-block: 8px; }
+}
+@media(max-height:650px) and (min-width:601px) {
+  .full-screen-service-hero .commercial-copy { bottom: 25px; }
+  .full-screen-service-hero .commercial-copy h1 { font-size: 34px; }
+  .full-screen-service-hero .hero-explainer { font-size: 14px; max-width: 500px; }
+}
+@media(max-height:650px) and (min-width:601px) { .full-screen-service-hero { min-height: 100svh; } }
+@media(max-height:500px) and (min-width:601px) {
+  .full-screen-service-hero .commercial-copy h1 { font-size: 28px; margin-bottom: 10px; }
+  .full-screen-service-hero .hero-explainer { font-size: 12px; line-height: 1.65; }
+  .full-screen-service-hero .hero-actions { margin-top: 14px; }
+  .full-screen-service-hero .commercial-copy { bottom: 20px; }
+}

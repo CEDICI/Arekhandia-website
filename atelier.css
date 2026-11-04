@@ -40,3 +40,11 @@
 .service-example{display:grid;grid-template-columns:.7fr 1fr;align-items:center;gap:10%}.service-example .example-image{max-width:410px;display:block}.example-image img{width:100%;height:auto}.service-example h2{font-size:clamp(30px,3vw,46px);margin-bottom:22px}.service-example>div>p{max-width:600px;color:var(--muted);margin-bottom:25px}
 @media(max-width:600px){.service-example{grid-template-columns:1fr;gap:30px}.service-example .example-image{max-width:260px}.gym-primary{width:calc(100% - var(--gutter)*2);padding:18px;max-width:430px}.gym-primary .responsive-interface img{aspect-ratio:390/1000;width:100%;height:auto}.gym-interface .mobile-interface{display:none}.gym-primary figcaption{font-size:11px}.project-next .next-copy{font-size:15px}.project-next>.text-link{margin-top:28px}}
 @media(max-width:1100px) and (max-aspect-ratio:61/100){.home .overlay-header>.brand{visibility:hidden}.mobile-hero-brand{top:17%;left:7%;right:7%}.brand-hero:before{background:linear-gradient(#101214b3 0%,#1012148c 29%,#10121420 57%,#10121466 100%)}}
+
+/* Platform-independent vector arrows; avoids emoji substitution in iOS Safari. */
+.ui-arrow{display:inline-block;width:16px;height:16px;flex:none;vertical-align:-.12em;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+/* Retain explicit grid placement after switching from Unicode span arrows to SVG. */
+.discipline-list>a>.ui-arrow{grid-column:2;grid-row:1;justify-self:end;align-self:center}
+.service-overview .discipline-list>a>.ui-arrow{grid-column:3}
+@media(max-width:600px){.service-overview .discipline-list>a>.ui-arrow{grid-column:2}}

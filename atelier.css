@@ -43,3 +43,8 @@
 
 /* Platform-independent vector arrows; avoids emoji substitution in iOS Safari. */
 .ui-arrow{display:inline-block;width:16px;height:16px;flex:none;vertical-align:-.12em;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+/* Retain explicit grid placement after switching from Unicode span arrows to SVG. */
+.discipline-list>a>.ui-arrow{grid-column:2;grid-row:1;justify-self:end;align-self:center}
+.service-overview .discipline-list>a>.ui-arrow{grid-column:3}
+@media(max-width:600px){.service-overview .discipline-list>a>.ui-arrow{grid-column:2}}

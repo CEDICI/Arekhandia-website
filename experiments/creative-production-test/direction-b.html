@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="de-CH"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#102C24"><title>AREKHANDIA | SPACES / Creative study</title>
+<style>
+@font-face{font-family:Manrope;src:url(https://arekhandia.ch/assets/fonts/manrope.woff2) format("woff2");font-display:swap}
+:root{--forest:#102C24;--racing:#184A3B;--ivory:#F5F1E8;--stone:#D8D1C5;--mist:#A8B4AC;--black:#171717;--page:clamp(20px,4vw,68px)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--forest);color:var(--ivory);font-family:Manrope,Arial,sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}::selection{color:var(--forest);background:var(--stone)}:focus-visible{outline:3px solid #A8B4AC;outline-offset:5px}.skip{position:absolute;top:-200px;z-index:1000;background:white;color:black;padding:15px}.skip:focus{top:0}
+.note{background:#34594B;color:white;text-align:center;padding:7px 15px;font-size:10px}
+.bnav{height:99px;padding:0 var(--page);display:flex;align-items:center;justify-content:space-between;gap:24px;border-bottom:1px solid #597467;position:relative;z-index:3}
+.bnav .brand{display:block;max-width:210px;width:35vw}.bnav .brand img{width:100%}.bnav nav{display:flex;align-items:center;gap:clamp(20px,3vw,57px);font-size:13px}.bnav a:hover{text-decoration:underline;text-underline-offset:7px}
+.frame{background:var(--forest);position:relative;overflow:hidden;min-height:min(950px,calc(100svh - 130px));padding:clamp(52px,5vw,90px) var(--page) 34px;display:flex;flex-direction:column;justify-content:space-between}
+.frame:before{content:"";position:absolute;inset:4vw var(--page) 0;opacity:.27;pointer-events:none;background-image:linear-gradient(90deg,transparent calc(50% - .5px),#6B8E7C 50%,transparent calc(50% + .5px)),linear-gradient(#6B8E7C 1px,transparent 1px);background-size:100% 100%,100% 110px}
+.frame:after{content:"";position:absolute;width:65vw;height:65vw;max-width:930px;max-height:930px;border-radius:50%;right:-22vw;bottom:-43vw;border:1px solid rgba(187,214,195,.21);box-shadow:0 0 0 8vw rgba(255,255,255,.015),0 0 0 16vw rgba(255,255,255,.012);pointer-events:none}
+.frame-top{display:flex;align-items:start;justify-content:space-between;gap:20px;position:relative;z-index:1;font-size:12px;letter-spacing:.045em;color:#C2CFC5}
+.frame-top .fline{width:58px;height:2px;background:var(--ivory);margin-top:7px}
+.frame-body{position:relative;z-index:1;max-width:1480px;margin:5vh 0}
+.frame h1{font-weight:500;letter-spacing:-.093em;line-height:.87;margin:0;font-size:clamp(73px,11.2vw,192px)}
+.frame h1 span{display:block}.frame h1 span:nth-child(2){padding-left:clamp(0px,12vw,250px)}.frame h1 span:nth-child(3){color:var(--stone)}
+.frame-bottom{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:end;position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.22);padding-top:22px}
+.frame-bottom p{font-size:clamp(17px,1.5vw,22px);line-height:1.45;font-weight:400;max-width:450px;margin:0}
+.frame-bottom a{justify-self:end;font-size:13px;border-bottom:1px solid currentColor;padding-bottom:7px;transition:letter-spacing .25s}
+.frame-bottom a:hover{letter-spacing:.05em}
+.manifesto{background:var(--ivory);color:var(--forest);padding:clamp(105px,14vw,230px) var(--page);position:relative;overflow:hidden}
+.manifesto .eyebrow{font-size:12px;letter-spacing:.03em;position:absolute;top:clamp(40px,4vw,80px);left:var(--page)}
+.manifesto p{font-size:clamp(38px,6vw,95px);line-height:1.1;letter-spacing:-.07em;max-width:1490px;margin:0;font-weight:500}
+.manifesto p span{color:#87928A}
+.practice-head{background:var(--forest);color:var(--ivory);padding:clamp(100px,12vw,200px) var(--page) 70px}
+.practice-head span{display:block;font-size:12px;color:var(--mist);letter-spacing:.04em}
+.practice-head h2{font-size:clamp(64px,11vw,180px);font-weight:500;letter-spacing:-.09em;line-height:.92;margin:50px 0 0}
+.practice-head h2 em{font-style:normal;color:var(--stone);padding-left:clamp(0px,13vw,250px)}
+.practice-head p{font-size:15px;max-width:410px;line-height:1.6;margin:50px 0 0 auto;color:#C6D2C6}
+.practice-wall{background:var(--ivory);color:var(--forest)}
+.piece{position:relative;border-bottom:1px solid rgba(16,44,36,.27);padding:clamp(60px,8vw,135px) var(--page);min-height:350px}
+.piece-head{display:flex;gap:24px;align-items:baseline}
+.piece .n{font-size:12px;color:var(--racing);min-width:40px;font-weight:700}
+.piece h3{font-weight:500;letter-spacing:-.068em;line-height:1.06;font-size:clamp(39px,6.6vw,115px);margin:0}
+.piece p{max-width:370px;font-size:15px;line-height:1.7;color:#566158;margin:28px 0 0 auto}
+.piece .feature-link{display:inline-block;border-bottom:1px solid var(--racing);padding-bottom:7px;margin:26px 0 0 auto;font-size:13px;color:var(--racing);float:right}
+.piece:after{content:"";display:block;clear:both}
+.piece.id{min-height:540px;background:#DCE2DB}.piece.id h3{max-width:690px}
+.piece.id figure{width:clamp(120px,18vw,250px);position:absolute;right:var(--page);top:28px;margin:0;transform:rotate(7deg)}
+.piece.id figure img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.piece.id p{margin-right:15vw}
+.piece.digital{min-height:620px;background:#EEEFE9}
+.piece.digital .copy{max-width:690px}
+.piece.digital h3{max-width:610px}
+.piece.digital figure{width:clamp(230px,32vw,550px);margin:60px 0 0 auto;background:#ced4cb;padding:clamp(16px,2vw,35px);box-shadow:0 16px 60px rgba(0,0,0,.08)}
+.piece.digital figure img{width:100%;display:block}
+.piece.digital .copy p{margin-left:40px;margin-right:0}
+.piece.transform{background:var(--racing);color:var(--ivory);min-height:440px}
+.piece.transform .n,.piece.transform p{color:#CEDCD2}
+.piece.transform h3{max-width:1250px}
+.piece.transform .feature-link{color:var(--ivory);border-color:var(--ivory)}
+.piece.creative{min-height:700px;padding-bottom:0;background:var(--stone);overflow:hidden}
+.piece.creative .copy{position:relative;z-index:1;max-width:50%}
+.piece.creative figure{position:absolute;bottom:0;right:0;width:45%;height:95%;margin:0;overflow:hidden}
+.piece.creative figure img{width:100%;height:100%;object-fit:cover}
+.piece.creative p{margin:28px 0 0 70px}
+.piece.commerce{background:#ECF0E7}
+.piece.commerce .piece-head{justify-content:flex-end}
+.piece.commerce p{margin-left:16%;margin-right:auto}
+.piece.campaign{background:var(--forest);color:var(--ivory);min-height:660px}
+.piece.campaign h3{max-width:680px}
+.piece.campaign p{color:#CAD6CC}
+.piece.campaign .n{color:var(--stone)}
+.piece.campaign figure{position:absolute;width:27%;height:58%;right:var(--page);top:20px;margin:0;transform:rotate(-6deg);border:8px solid var(--ivory);overflow:hidden}
+.piece.campaign figure img{height:100%;width:100%;object-fit:cover}
+.piece.campaign .feature-link{color:var(--ivory);border-color:var(--ivory)}
+.piece.social{background:var(--ivory);min-height:380px}
+.piece.social h3{font-size:clamp(36px,6vw,100px)}
+.piece a:hover{text-decoration:none;opacity:.7}
+.work-note{background:var(--forest);color:var(--ivory);padding:clamp(90px,10vw,175px) var(--page)}
+.work-note h2{font-size:clamp(58px,10vw,164px);letter-spacing:-.09em;line-height:.9;margin:0 0 68px;font-weight:500}
+.work-note .grid{display:grid;grid-template-columns:1.4fr .8fr;gap:clamp(24px,6vw,120px)}
+.work-note .grid a{display:block}
+.work-note figure{margin:0}
+.work-note img{width:100%;height:100%;object-fit:cover;max-height:680px}
+.work-note .side figure{max-height:430px}
+.work-note .side a{display:block;margin-bottom:40px}
+.work-note figcaption{padding:18px 0 0;display:flex;justify-content:space-between;gap:20px;border-top:1px solid rgba(255,255,255,.25);margin-top:10px;font-size:13px}
+.work-note figcaption small{color:#C6D3C8;max-width:200px}
+.work-note .disclaimer{margin:60px 0 0;color:#C3D2C4;font-size:12px}
+.last{background:var(--ivory);color:var(--forest);padding:clamp(90px,12vw,200px) var(--page) 60px}
+.last small{font-size:12px}
+.last h2{font-size:clamp(55px,8vw,135px);line-height:1.02;letter-spacing:-.078em;font-weight:500;max-width:1300px;margin:45px 0 100px}
+.last .last-link{font-size:clamp(21px,2.5vw,34px);border-bottom:2px solid var(--forest);padding-bottom:12px}
+.last footer{display:flex;justify-content:space-between;gap:25px;margin-top:140px;padding-top:26px;border-top:1px solid rgba(16,44,36,.3);font-size:12px}
+.last footer a{text-decoration:underline;text-underline-offset:5px}
+@media(max-width:900px){.frame h1{font-size:clamp(67px,12.6vw,115px)}.frame h1 span:nth-child(2){padding-left:5vw}.piece.creative{padding-bottom:0}.piece.creative .copy{max-width:55%}.piece.creative figure{width:43%}.piece.id p{margin-right:0}}
+@media(max-width:680px){.bnav{height:76px}.bnav .brand{width:145px}.bnav nav{gap:14px;font-size:11px}.bnav nav a:nth-child(2){display:none}.frame{min-height:calc(100svh - 100px);padding-top:48px;padding-bottom:24px}.frame:before{background-size:100% 100%,100% 85px}.frame:after{width:85vw;height:85vw;right:-24vw;bottom:-34vw}.frame h1{font-size:clamp(64px,14vw,104px)}.frame h1 span:nth-child(2){padding-left:0}.frame-body{margin:9vh 0}.frame-bottom{grid-template-columns:1fr;gap:22px}.frame-bottom a{justify-self:start}.frame-bottom p{font-size:16px}.manifesto{padding:130px var(--page) 100px}.manifesto p{font-size:clamp(37px,8vw,67px)}.practice-head h2{font-size:clamp(59px,13vw,95px)}.practice-head h2 em{padding-left:0}.practice-head p{margin:35px 0 0}.piece{padding:70px 20px;min-height:0!important}.piece h3{font-size:clamp(37px,9vw,65px)}.piece p{max-width:none;margin:30px 0 0}.piece .feature-link{float:none;margin:20px 0 0}.piece.id figure{width:37%;right:12px;top:25px;opacity:.35}.piece.id h3{position:relative;z-index:1}.piece.digital figure{width:100%;margin-top:35px}.piece.digital .copy p{margin-left:0}.piece.creative{padding-bottom:0}.piece.creative .copy{max-width:none}.piece.creative figure{position:relative;width:calc(100% + 40px);height:400px;right:20px;margin-top:38px}.piece.creative p{margin-left:0}.piece.campaign figure{width:32%;height:220px;right:0;top:15px;opacity:.38;border-width:4px}.piece.commerce .piece-head{justify-content:flex-start}.piece.commerce p{margin-left:0}.work-note{padding:95px 20px}.work-note .grid{grid-template-columns:1fr}.work-note .side{display:grid;grid-template-columns:1fr 1fr;gap:18px}.work-note .side a{margin:0}.work-note .side figcaption{display:block}.work-note .side figcaption small{display:block;margin-top:8px}.last{padding:100px 20px 35px}.last h2{margin:40px 0 80px}.last footer{margin-top:130px}}
+@media(max-width:375px){.frame h1{font-size:57px}.bnav nav a:nth-child(1){display:none}.work-note .side{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+</style></head><body>
+<a class="skip" href="#main">Zum Inhalt</a><div class="note">AREKHANDIA / Private Design Exploration · Direction B</div>
+<header class="bnav"><a class="brand" href="#top" aria-label="AREKHANDIA"><img src="https://arekhandia.ch/assets/wordmark-light.png" alt="AREKHANDIA" width="230"></a><nav aria-label="Navigation"><a href="#disciplines">Disziplinen</a><a href="#work">Arbeiten</a><a href="https://arekhandia.ch/contact.html">Kontakt ↗</a></nav></header>
+<main id="main">
+<section class="frame" id="top" aria-labelledby="frame-title">
+<div class="frame-top"><span>Ein unabhängiges Creative &amp; Digital Studio</span><span class="fline" aria-hidden="true"></span><span>Zürich / Schweiz</span></div>
+<div class="frame-body"><h1 id="frame-title"><span>RAUM.</span><span>FÜR NEUE</span><span>IDEEN.</span></h1></div>
+<div class="frame-bottom"><p>Identität, digitale Erlebnisse und kreative Kommunikation. Zusammen gedacht. Eigenständig gemacht.</p><a href="#disciplines">Was wir gestalten ↙</a></div>
+</section>
+<section class="manifesto"><span class="eyebrow">Unsere Haltung</span><p>Ein Unternehmen hat seine eigene Geschichte. <span>Warum sollte es aussehen wie alle anderen?</span></p></section>
+<div class="practice-head" id="disciplines"><span>AREKHANDIA / Arbeitsbereiche</span><h2>Eine Aufgabe.<br><em>Viele Wege.</em></h2><p>Wir beginnen mit dem, was du erreichen willst. Die Disziplinen verbinden sich, wenn die Aufgabe es verlangt.</p></div>
+<div class="practice-wall">
+<section class="piece transform" aria-labelledby="s-transform"><div class="piece-head"><span class="n">01</span><h3 id="s-transform">Brand Transformation</h3></div><p>Von der Positionierung über Rebranding bis zum neuen digitalen Auftritt. Ein zusammenhängendes Projekt statt einzelner kosmetischer Massnahmen.</p><a class="feature-link" href="https://arekhandia.ch/services/brand-transformation/">Leistung entdecken ↗</a></section>
+<section class="piece id" aria-labelledby="s-id"><figure><img loading="lazy" src="https://arekhandia.ch/assets/gioia/38-1600.webp" alt="GIOIA Brand Identity und Packaging, freie Konzeptarbeit"></figure><div class="piece-head"><span class="n">02</span><h3 id="s-id">Brand Identity &amp; Markenentwicklung</h3></div><p>Naming, Positionierung, Logo und visuelles System. Damit eine Marke nicht nur auffällt, sondern zusammenhängend erkennbar wird.</p><a class="feature-link" href="https://arekhandia.ch/services/brand-identity/">Mehr zur Identität ↗</a></section>
+<section class="piece digital" aria-labelledby="s-digital"><div class="copy"><div class="piece-head"><span class="n">03</span><h3 id="s-digital">Premium Webdesign &amp; Development</h3></div><p>Von der eigenständigen User Experience zum responsiven, funktionierenden digitalen Auftritt.</p></div><figure><img loading="lazy" src="https://arekhandia.ch/assets/gymcompare/home.webp" alt="Gymcompare, reales eigenes Digitalprojekt"></figure><a class="feature-link" href="https://arekhandia.ch/services/digital-experiences/">Zum Digitalangebot ↗</a></section>
+<section class="piece creative" aria-labelledby="s-creative"><div class="copy"><div class="piece-head"><span class="n">04</span><h3 id="s-creative">Creative Direction</h3></div><p>Eine Leitidee, die Gestaltung, Inhalt und Kommunikation zusammenführt. Für einzelne Projekte oder als laufende kreative Partnerschaft.</p><a class="feature-link" href="https://arekhandia.ch/services/creative-direction/">Mehr zur Creative Direction ↗</a></div><figure><img loading="lazy" src="https://arekhandia.ch/assets/form01/DSC00732-1600.webp" alt="Originalfotografie CEDICI FORM 01, eigenes Markenprojekt"></figure></section>
+<section class="piece commerce" aria-labelledby="s-commerce"><div class="piece-head"><span class="n">05</span><h3 id="s-commerce">E-Commerce Design &amp; Optimierung</h3></div><p>Shop-Erlebnisse, Produktpräsentation und mobile Nutzerführung, die gestalterisch zur Marke und funktional zum Kaufprozess passen.</p><a class="feature-link" href="https://arekhandia.ch/services/digital-experiences/">Mehr zu E-Commerce ↗</a></section>
+<section class="piece campaign" aria-labelledby="s-campaign"><figure><img loading="lazy" src="https://arekhandia.ch/assets/form01/DSC09927-1600.webp" alt="CEDICI FORM 01 Kampagnenmotiv"></figure><div class="piece-head"><span class="n">06</span><h3 id="s-campaign">Kampagnenkonzeption &amp; Art Direction</h3></div><p>Strategie, Bildsprache, Storytelling und Produktionsplanung. Konzepte, die über einzelne Motive hinaus funktionieren.</p><a class="feature-link" href="https://arekhandia.ch/services/creative-direction/">Zum Kampagnenangebot ↗</a></section>
+<section class="piece social" aria-labelledby="s-social"><div class="piece-head"><span class="n">07</span><h3 id="s-social">Social Content &amp; Visual Production</h3></div><p>Visuelle Inhalte und zusammenhängende Serien für unterschiedliche Kanäle und langfristig erkennbare Kommunikation.</p><a class="feature-link" href="https://arekhandia.ch/services/creative-direction/">Zur Content Direction ↗</a></section>
+</div>
+<section class="work-note" id="work"><h2>Die Arbeit<br>spricht.</h2><div class="grid"><a href="https://arekhandia.ch/case-cedici.html"><figure><img loading="lazy" src="https://arekhandia.ch/assets/form01/DSC00078-1600.webp" alt="CEDICI FORM 01 Originalkampagne"><figcaption><span>CEDICI / FORM 01</span><small>Eigenes Markenprojekt<br>Creative Direction</small></figcaption></figure></a><div class="side"><a href="https://arekhandia.ch/case-gioia.html"><figure><img loading="lazy" src="https://arekhandia.ch/assets/gioia/34-1600.webp" alt="GIOIA fiktive Gelato Markenwelt"><figcaption><span>GIOIA</span><small>Freie Konzeptarbeit</small></figcaption></figure></a><a href="https://arekhandia.ch/case-gymcompare.html"><figure><img loading="lazy" src="https://arekhandia.ch/assets/gymcompare/mobile.webp" alt="Gymcompare eigene mobile Webplattform"><figcaption><span>Gymcompare</span><small>Eigenes Digitalprojekt</small></figcaption></figure></a></div></div><p class="disclaimer">CEDICI und Gymcompare: eigene Projekte. GIOIA: fiktive Konzeptarbeit. Keine erfundenen Kundenreferenzen.</p></section>
+<section class="last"><small>Dein nächstes Vorhaben</small><h2>Was wäre möglich, wenn wir ganz neu denken?</h2><a class="last-link" href="https://arekhandia.ch/contact.html">Ein Projekt besprechen ↗</a><footer><span>AREKHANDIA / Experimentelle Vorschau. Kein Live-Relaunch.</span><a href="https://arekhandia.ch/impressum.html">Impressum</a></footer></section>
+</main></body></html>
